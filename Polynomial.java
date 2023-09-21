@@ -48,13 +48,12 @@ public class Polynomial {
 			array=new double[len1];
 
 			// for loop until, len2 reached
-			int i=0;
-			for (i=0; i<len2; i++) {
+			for (int i=0; i<len2; i++) {
 				array[i] = coeff[i]+poly.coeff[i];
 			}
 
-			for (i=len2; i<len1; i++) {
-				array[i] = coeff[i]+poly.coeff[i];
+			for (int i=len2; i<len1; i++) {
+				array[i] = poly.coeff[i];
 			}
 
 		}
@@ -68,7 +67,7 @@ public class Polynomial {
 			}
 
 			for (i=len2; i<len2; i++) {
-				array[i] = coeff[i]+poly.coeff[i];
+				array[i] = coeff[i];
 			}
 
 		}
