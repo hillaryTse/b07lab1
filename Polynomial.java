@@ -1,9 +1,8 @@
-import java.lang.Math;
 
 public class Polynomial {
 	double [] coeff;
 	
-	// constructor
+	// no-arg constructor
 	public Polynomial() {
 		// set array to 0
 		coeff = new double[1];
@@ -12,8 +11,6 @@ public class Polynomial {
 	}
 
 	public Polynomial(double[] x) {
-		// get length of
-		// for, set all values of coeff == x
 		coeff=new double[x.length];
 		for (int i=0; i<x.length; i++) {
 			coeff[i]=x[i];
@@ -22,14 +19,8 @@ public class Polynomial {
 	}
 	
 	public Polynomial add(Polynomial poly) {
-		// returns result of adding calling object + argument
-		//coeff of type double, x of type Polynomial??
-		// ex. Polynomial s = p1.add(p2); -- returns p1 added to p2 in which p1 and p2 are polynomials
-		// how to refer to calling object??
-		//Polynomial result = new Polynomial(x+coeff);
-		
+		// returns result of adding calling object + argument		
 		// 2 double arrays. construct the new double array
-			// return result = new Polynomial(result);
 		Polynomial result = new Polynomial();
 
 		int len1 = poly.coeff.length;
@@ -47,7 +38,7 @@ public class Polynomial {
 		else if (len1>len2) {
 			array=new double[len1];
 
-			// for loop until, len2 reached
+			// for loop until len2 reached
 			for (int i=0; i<len2; i++) {
 				array[i] = coeff[i]+poly.coeff[i];
 			}
@@ -55,12 +46,11 @@ public class Polynomial {
 			for (int i=len2; i<len1; i++) {
 				array[i] = poly.coeff[i];
 			}
-
 		}
 		else if (len2>len1) {
 			array=new double[len2];
 
-			// for loop until, len1 reached
+			// for loop until len1 reached
 			int i=0;
 			for (i=0; i<len1; i++) {
 				array[i] = coeff[i]+poly.coeff[i];
@@ -69,9 +59,7 @@ public class Polynomial {
 			for (i=len2; i<len2; i++) {
 				array[i] = coeff[i];
 			}
-
 		}
-
 		result = new Polynomial(array);
 		return result;
 	}
@@ -89,22 +77,17 @@ public class Polynomial {
 			else {
 				result=result+(Math.pow(x, i))*coeff[i];
 			}
-			//System.out.println("poly[0]: "+coeff[i]);
-			//System.out.println("result: " + result);
 		}
-		// i = power
-
 		return result;
 	}
 
 	public boolean hasRoot(double x) {
-		// determines whether or not x is a root of the polynomial or not
+		// determines whether or not x is a root of the polynomial
 			// root -- value of x for which polynomial=0
 
 		if (evaluate(x)==0) { 
 			return true;
 		}
 		return false;
-		}
-	
+	}
 }
